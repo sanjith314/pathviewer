@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PathViewer - Digital Pathology Slide Viewer</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/openseadragon@5.0.1/build/openseadragon/openseadragon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/usnistgov/OpenSeadragonScalebar@master/openseadragon-scalebar.js"></script>
+</head>
+<body>
+  <div id="app">
+    <aside id="sidebar">
+      <header class="sidebar-header">
+        <h1>PathViewer</h1>
+        <p class="subtitle">Digital pathology slide viewer</p>
+      </header>
+
+      <section class="upload-area" id="uploadArea">
+        <input type="file" id="fileInput" accept=".jpg,.jpeg,.svs,.tif,.tiff,.ndpi" hidden />
+        <p><strong>Drop a slide here</strong> or click to browse</p>
+        <p class="hint">jpg &middot; svs &middot; tiff &middot; ndpi</p>
+        <div class="progress" id="uploadProgress" hidden>
+          <div class="progress-bar" id="uploadProgressBar"></div>
+        </div>
+      </section>
+
+      <section class="slides-section">
+        <h2>Slides</h2>
+        <ul id="slideList" class="slide-list"></ul>
+      </section>
+
+      <section class="metadata-section" id="metadataSection" hidden>
+        <h2>Metadata</h2>
+        <dl id="metadata" class="metadata"></dl>
+      </section>
+    </aside>
+
+    <main id="viewer-pane">
+      <div id="viewer"></div>
+      <div id="placeholder" class="placeholder">
+        <p>Select or upload a slide to begin.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/viewer.js"></script>
+</body>
+</html>
